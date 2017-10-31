@@ -48,7 +48,7 @@ extern "C" {
 
   typedef struct blake2s_state__
   {
-    uint32_t h[8];
+    uint32_t h[48];
     uint32_t t[2];
     uint32_t f[2];
     uint8_t  buf[BLAKE2S_BLOCKBYTES];
@@ -59,7 +59,7 @@ extern "C" {
 
   typedef struct blake2b_state__
   {
-    uint64_t h[8];
+    uint64_t h[48];
     uint64_t t[2];
     uint64_t f[2];
     uint8_t  buf[BLAKE2B_BLOCKBYTES];
@@ -70,18 +70,18 @@ extern "C" {
 
   typedef struct blake2sp_state__
   {
-    blake2s_state S[8][1];
+    blake2s_state S[48][1];
     blake2s_state R[1];
-    uint8_t       buf[8 * BLAKE2S_BLOCKBYTES];
+    uint8_t       buf[48 * BLAKE2S_BLOCKBYTES];
     size_t        buflen;
     size_t        outlen;
   } blake2sp_state;
 
   typedef struct blake2bp_state__
   {
-    blake2b_state S[4][1];
+    blake2b_state S[24][1];
     blake2b_state R[1];
-    uint8_t       buf[4 * BLAKE2B_BLOCKBYTES];
+    uint8_t       buf[24 * BLAKE2B_BLOCKBYTES];
     size_t        buflen;
     size_t        outlen;
   } blake2bp_state;

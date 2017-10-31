@@ -24,7 +24,7 @@
 #include "blake2.h"
 #include "blake2-impl.h"
 
-#define PARALLELISM_DEGREE 8
+#define PARALLELISM_DEGREE 24
 
 /*
   blake2sp_init_param defaults to setting the expecting output length

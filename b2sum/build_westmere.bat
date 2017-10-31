@@ -1,0 +1,1 @@
+gcc b2sum.c ..\sse\blake2b.c ..\sse\blake2s.c ..\sse\blake2bp.c ..\sse\blake2sp.c -O3 -march=westmere -mtune=westmere -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -std=c89 -Wall -Wextra -pedantic -Wno-long-long -I..\sse -fopenmp -o b2sum_westmere.exe
