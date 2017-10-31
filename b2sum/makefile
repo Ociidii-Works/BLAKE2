@@ -1,13 +1,13 @@
 PROG=b2sum
 PREFIX?=/usr/local
 MANDIR?=$(PREFIX)/man
-NO_OPENMP?=0
-NO_OPENMP_0=-fopenmp
-NO_OPENMP_1=
+# NO_OPENMP?=0
+# NO_OPENMP_0=-fopenmp
+# NO_OPENMP_1=
 CC?=gcc
-CFLAGS?=-O3 -march=native
-CFLAGS+=-std=c89 -Wall -Wextra -pedantic -Wno-long-long -I../sse
-CFLAGS+=$(NO_OPENMP_$(NO_OPENMP))
+CFLAGS?=-O3 -march=westmere -mtune=westmere -msse2 -msse3 -mssse3 -msse4.1 -msse4.2
+CFLAGS+= -std=c89 -Wall -Wextra -pedantic -Wno-long-long -I../sse
+CFLAGS+= -fopenmp
 LIBS=
 #FILES=b2sum.c ../ref/blake2b-ref.c ../ref/blake2s-ref.c ../ref/blake2bp-ref.c ../ref/blake2sp-ref.c
 FILES=b2sum.c ../sse/blake2b.c ../sse/blake2s.c ../sse/blake2bp.c ../sse/blake2sp.c
